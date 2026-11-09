@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Tej! ❤️</title>
+    <!-- Google Fonts for Vintage Scrapbook Vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --burgundy: #5c1d24;
+            --deep-rose: #8b263e;
+            --warm-cream: #fbf6ef;
+            --parchment: #f4ebd9;
+            --muted-brown: #4a3525;
+            --accent-gold: #c8963e;
+            --tape-color: rgba(235, 220, 190, 0.7);
+            --shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--warm-cream);
+            background-image: radial-gradient(var(--parchment) 15%, transparent 16%), radial-gradient(var(--parchment) 15%, transparent 16%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            color: var(--muted-brown);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Scrapbook Header Banner */
+        .top-banner {
+            background: var(--burgundy);
+            color: var(--warm-cream);
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Container Setup */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .hero-card {
+            background: var(--parchment);
+            padding: 40px 30px;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            border: 2px dashed var(--burgundy);
+            max-width: 700px;
+            position: relative;
+            transform: rotate(-1deg);
+        }
+
+        .tape-top {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 30px;
+            background: var(--tape-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--deep-rose);
+            margin-bottom: 10px;
+        }
+
+        h1.main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--burgundy);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: var(--muted-brown);
+            margin-bottom: 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--burgundy);
+            color: var(--warm-cream);
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(92, 29, 36, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-btn:hover {
+            background: var(--deep-rose);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(92, 29, 36, 0.4);
+        }
+
+        /* Section Commons */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--burgundy);
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: var(--deep-rose);
+            margin-bottom: 40px;
+        }
+
+        /* Letter Section */
+        .letter-paper {
+            background: #fffdf9;
+            padding: 50px 40px;
+            border-radius: 3px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--deep-rose);
+            position: relative;
+            font-family: 'Caveat', cursive;
+            font-size: 1.55rem;
+            line-height: 1.8;
+            color: #2b1e16;
+        }
+
+        .letter-paper::before {
+            content: "10 November 2026";
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            font-size: 1.2rem;
+            color: #777;
+        }
+
+        .stamp {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border: 2px dashed var(--burgundy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--burgundy);
+            transform: rotate(-12deg);
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 2rem;
+            color: var(--burgundy);
+        }
+
+        /* Photo Scrapbook Section */
+        .scrapbook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .polaroid {
+            background: #ffffff;
+            padding: 15px 15px 25px 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .polaroid:nth-child(1) { transform: rotate(-3deg); }
+        .polaroid:nth-child(2) { transform: rotate(2deg); }
+        .polaroid:nth-child(3) { transform: rotate(-2deg); }
+        .polaroid:nth-child(4) { transform: rotate(4deg); }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 10;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .polaroid .caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            margin-top: 15px;
+            color: var(--muted-brown);
+        }
+
+        .polaroid-tape {
+            position: absolute;
+            top: -10px;
+            left: 35%;
+            width: 70px;
+            height: 22px;
+            background: var(--tape-color);
+        }
+
+        /* Vinyl Music Section */
+        .music-card {
+            background: var(--parchment);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .vinyl-container {
+            width: 180px;
+            height: 180px;
+            background: #111;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            margin-bottom: 25px;
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .vinyl-label {
+            width: 70px;
+            height: 70px;
+            background: var(--burgundy);
+            border-radius: 50%;
+            border: 4px solid var(--warm-cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .spotify-btn {
+            background: #1DB954;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .spotify-btn:hover {
+            transform: scale(1.05);
+            background: #1ed760;
+        }
+
+        /* Interactive Envelope Surprise Section */
+        .surprise-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .envelope-box {
+            width: 280px;
+            height: 180px;
+            background: var(--burgundy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warm-cream);
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .envelope-box:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-content {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: var(--warm-cream);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 550px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 3px solid var(--burgundy);
+            position: relative;
+            animation: popup 0.4s ease-out;
+        }
+
+        @keyframes popup {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: var(--burgundy);
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: var(--muted-brown);
+            border-top: 1px dashed #d1c4b2;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+            h1.main-title { font-size: 2.3rem; }
+            .letter-paper { padding: 30px 20px; font-size: 1.35rem; }
+            .letter-paper::before { position: relative; top: 0; right: 0; display: block; margin-bottom: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scrapbook Header Banner -->
+    <div class="top-banner">
+        ✨ 10 November 2026 • Celebrating The Best Person Ever ✨
+    </div>
+
+    <!-- 1. Hero / Welcome Section -->
+    <section class="hero">
+        <div class="hero-card">
+            <div class="tape-top"></div>
+            <p class="tagline">A Little Corner Of The Internet Made Just For You</p>
+            <h1 class="main-title">Happy Birthday, Tej! ❤️</h1>
+            <p class="intro-text">
+                Today is all about celebrating you—your smile, your kindness, and all the little moments that make you so special to me. Take a trip down this vintage memory lane!
+            </p>
+            <a href="#letter" class="cta-btn">Open Your Birthday Scrapbook</a>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- 2. Birthday Letter Section -->
+        <section id="letter">
+            <h2 class="section-title">A Letter For You</h2>
+            <p class="section-subtitle">Written straight from the heart...</p>
+            
+            <div class="letter-paper">
+                <div class="stamp">TEJ</div>
+                <p>Dearest Tej,</p>
+                <br>
+                <p>Happy Birthday to my favorite person! Looking back at everything we've shared, I can’t help but feel endlessly grateful to have you in my life. You bring so much warm light, effortless laughter, and genuine comfort into my world every single day.</p>
+                <br>
+                <p>Thank you for being my constant support, my favorite conversation partner, and the absolute best part of my days. I hope this new year of your life brings you as much happiness, peace, and success as you give to everyone around you.</p>
+                <br>
+                <p>Here’s to more adventures, endless jokes, great music, and endless memories together.</p>
+                
+                <div class="signature">
+                    With all my love ❤️
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Memories / Photo Scrapbook Section -->
+        <section id="memories">
+            <h2 class="section-title">Our Favorite Moments</h2>
+            <p class="section-subtitle">Polaroids from our adventures together</p>
+
+            <div class="scrapbook-grid">
+                <!-- Polaroid 1 -->
+                <div class="polaroid">
+                    <div class="polaroid-tape"></div>
+                    <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=600&q=80" alt="Special Memory">
+                    <div class="caption">That spontaneous afternoon out ✨</div>
+                </div>
+
+                <!-- Polaroid 2 -->
+                <div class="polaroid">
+                    <div class="polaroid-tape"></div>
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Coffee Date">
+                    <div class="caption">Coffee, endless chats & laughs ☕</div>
+                </div>
+
+                <!-- Polaroid 3 -->
+                <div class="polaroid">
+                    <div class="polaroid-tape"></div>
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80" alt="Sunset View">
+                    <div class="caption">Chasing sunsets together 🌅</div>
+                </div>
+
+                <!-- Polaroid 4 -->
+                <div class="polaroid">
+                    <div class="polaroid-tape"></div>
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Celebration">
+                    <div class="caption">To many more years like this 🥂</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Music / Playlist Section -->
+        <section id="music">
+            <h2 class="section-title">A Little Playlist For You</h2>
+            <p class="section-subtitle">Songs that always remind me of you</p>
+
+            <div class="music-card">
+                <div class="vinyl-container">
+                    <div class="vinyl-label">TEJ'S<br>MIX</div>
+                </div>
+                <p style="max-width: 500px; margin-bottom: 10px;">
+                    Every great story deserves a soundtrack. Press below to listen to our custom mixtape on Spotify!
+                </p>
+                <!-- Edit the href link below with your actual Spotify playlist link -->
+                <a href="https://open.spotify.com" target="_blank" class="spotify-btn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.152 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z"/>
+                    </svg>
+                    Open Spotify Playlist
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. Surprise Reveal Section -->
+        <section id="surprise">
+            <h2 class="section-title">One Last Little Surprise</h2>
+            <p class="section-subtitle">Click the envelope below to unlock it!</p>
+
+            <div class="surprise-wrapper">
+                <div class="envelope-box" onclick="openSurprise()">
+                    <div class="envelope-content">
+                        ✉️<br>Click To Open!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal Popup for Hidden Message -->
+    <div class="modal" id="surpriseModal">
+        <div class="modal-card">
+            <span class="close-btn" onclick="closeSurprise()">&times;</span>
+            <h2 style="font-family: 'Playfair Display', serif; color: var(--burgundy); margin-bottom: 15px;">Happy Birthday, Tej! 🎂</h2>
+            <p style="font-size: 1.1rem; line-height: 1.7; color: var(--muted-brown);">
+                My birthday wish for you is that this year brings you all the success, happiness, and joy you deserve. Thank you for being such an extraordinary part of my life! ❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        Handcrafted with love for Tej's Birthday • 10 November 2026
+    </footer>
+
+    <!-- JavaScript Functions -->
+    <script>
+        function openSurprise() {
+            document.getElementById('surpriseModal').style.display = 'flex';
+            // Trigger celebration confetti
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
+
+        function closeSurprise() {
+            document.getElementById('surpriseModal').style.display = 'none';
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('surpriseModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
